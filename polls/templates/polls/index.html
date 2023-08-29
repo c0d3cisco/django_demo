@@ -1,0 +1,15 @@
+{% comment %} Stretch Goal! Make this a full HTML document with a <head> and <body>. 
+	https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#anatomy_of_an_html_document
+	{% endcomment %}
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {% comment %} <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> {% endcomment %}
+        {% comment %} <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li> {% endcomment %}
+				<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
